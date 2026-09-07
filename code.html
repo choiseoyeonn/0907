@@ -49,7 +49,7 @@
   .nav-header .title { font-size: 17px; font-weight: 800; color: #1e1e1e; }
   .nav-header .actions { display: flex; gap: 16px; }
 
-  /* Hero Image (수정된 부분) */
+  /* Hero Image */
   .hero-image {
     width: 100%;
     height: 240px;
@@ -75,7 +75,7 @@
 
   /* Title */
   .title-section { display: flex; flex-direction: column; gap: 10px; }
-  .class-title { font-size: 21px; font-weight: 800; color: #1e1e1e; line-height: 1.38; letter-spacing: -0.3px; }
+  .class-title { font-size: 21px; font-weight: 800; color: #1e1e1e; line-height: 1.38; letter-spacing: -0.3px; word-break: keep-all; }
   .price-row { display: flex; align-items: center; gap: 8px; }
   .price-current { font-size: 18px; font-weight: 800; color: #ff6b4a; }
   .price-original { font-size: 14px; color: #666; text-decoration: line-through; }
@@ -84,19 +84,21 @@
 
   /* Instructor */
   .instructor { display: flex; align-items: center; gap: 12px; }
-  .instructor-avatar { width: 48px; height: 48px; border-radius: 50%; border: 1px solid #eee; background: linear-gradient(145deg, #c9a87c, #8b7355); flex-shrink: 0; }
+  .instructor-avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; border: 1px solid #eee; flex-shrink: 0; }
+  .instructor-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .instructor-info { display: flex; flex-direction: column; gap: 2px; }
   .instructor-name { font-size: 15px; font-weight: 800; color: #1e1e1e; }
-  .instructor-desc { font-size: 13px; color: #666; line-height: 1.38; }
+  .instructor-desc { font-size: 13px; color: #666; line-height: 1.38; word-break: keep-all; }
 
   /* Section */
   .section-title { font-size: 16px; font-weight: 800; color: #1e1e1e; margin-bottom: 12px; }
-  .section-body { font-size: 14px; color: #666; line-height: 1.6; }
+  .section-body { font-size: 14px; color: #666; line-height: 1.6; word-break: keep-all; }
 
   /* Info Card */
-  .info-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-  .info-row { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #1e1e1e; line-height: 1.36; }
-  .info-row svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .info-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .info-row { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #1e1e1e; line-height: 1.3; }
+  .info-row svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .info-text { flex: 1; white-space: nowrap; }
   .info-label { font-weight: 700; }
 
   /* Map */
@@ -105,13 +107,7 @@
     background: linear-gradient(135deg, #e8e4d8 0%, #d4cfc3 50%, #e0dcd2 100%);
     position: relative; overflow: hidden;
   }
-  .map-placeholder::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(90deg, transparent 49%, rgba(160,150,130,0.2) 49%, rgba(160,150,130,0.2) 51%, transparent 51%),
-                linear-gradient(0deg, transparent 49%, rgba(160,150,130,0.2) 49%, rgba(160,150,130,0.2) 51%, transparent 51%);
-    background-size: 40px 40px;
-  }
-  .map-placeholder::after { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; }
+  .map-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
   /* Reviews */
   .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
@@ -122,7 +118,7 @@
   .review-meta { display: flex; justify-content: space-between; align-items: center; }
   .reviewer-name { font-size: 13px; font-weight: 700; color: #1e1e1e; }
   .review-date { font-size: 12px; color: #999; }
-  .review-body { font-size: 13px; color: #666; line-height: 1.5; }
+  .review-body { font-size: 13px; color: #666; line-height: 1.5; word-break: keep-all; }
 
   /* Bottom CTA */
   .bottom-cta { position: sticky; bottom: 0; background: #fff; border-top: 1px solid #eee; padding: 12px 20px 20px; display: flex; align-items: center; gap: 12px; }
@@ -169,7 +165,6 @@
     </div>
   </div>
 
-  <!-- 메인 히어로 이미지 수정 -->
   <div class="hero-image">
     <img src="img-label.png" alt="도자기 원데이클래스">
   </div>
@@ -190,7 +185,7 @@
     <div class="divider"></div>
 
     <div class="instructor">
-      <div class="instructor-avatar"><img src="Ellipse.png"></div>
+      <div class="instructor-avatar"><img src="Ellipse.png" alt="강사 프로필"></div>
       <div class="instructor-info">
         <span class="instructor-name">김지은 강사</span>
         <span class="instructor-desc">"연남동에서 작은 도자기공방을 운영하며 손물레의 기쁨을 나누고 있어요."</span>
@@ -207,21 +202,21 @@
     <div class="info-card">
       <div class="info-row">
         <svg viewBox="0 0 18 18" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="13" height="12" rx="1.5"/><line x1="2.5" y1="7.5" x2="15.5" y2="7.5"/><line x1="6" y1="1.5" x2="6" y2="5"/><line x1="12" y1="1.5" x2="12" y2="5"/></svg>
-        <span><span class="info-label">진행 일정:</span> 매주 토요일 오후 2:00 ~ 5:00</span>
+        <span class="info-text"><span class="info-label">진행 일정:</span> 매주 토요일 오후 2:00 ~ 5:00</span>
       </div>
       <div class="info-row">
         <svg viewBox="0 0 18 18" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="3"/><path d="M3 16.5c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5"/></svg>
-        <span><span class="info-label">정원:</span> 최소 2명 ~ 최대 6명 (잔여 3석)</span>
+        <span class="info-text"><span class="info-label">정원:</span> 최소 2명 ~ 최대 6명 (잔여 3석)</span>
       </div>
       <div class="info-row">
         <svg viewBox="0 0 18 18" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 1.5C6 1.5 3.5 4 3.5 7c0 4.5 5.5 9.5 5.5 9.5s5.5-5 5.5-9.5c0-3-2.5-5.5-5.5-5.5z"/><circle cx="9" cy="7" r="2"/></svg>
-        <span><span class="info-label">장소:</span> 마포구 연남로3길 14 '민아 도자기 아뜰리에'</span>
+        <span class="info-text"><span class="info-label">장소:</span> 마포구 연남로3길 14 '민아 도자기 아뜰리에'</span>
       </div>
     </div>
 
     <div>
       <h2 class="section-title">배움터 위치</h2>
-      <div class="map-placeholder"><img src="Rectangle.png"></div>
+      <div class="map-placeholder"><img src="Rectangle.png" alt="지도 위치"></div>
     </div>
 
     <div>
